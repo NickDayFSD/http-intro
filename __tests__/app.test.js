@@ -64,4 +64,10 @@ describe('app routes', () => {
 </body>
 </html>`);
   });
+
+  it('response when the path does not exist', async() => {
+    const res = await request(app).get('/garfunkle');
+
+    expect(res.text).toEqual('Not Found');
+  });
 });
