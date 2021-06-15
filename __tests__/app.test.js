@@ -7,4 +7,10 @@ describe('app routes', () => {
 
     expect(res.text).toEqual('hi');
   });
+
+  it('finds POST /echo and returns status code with response.body as plain text', async()  => {
+    const res = await request(app).post('/echo').send('WAFFLES!');
+
+    expect(res.text).toEqual('WAFFLES!');
+  });
 });
