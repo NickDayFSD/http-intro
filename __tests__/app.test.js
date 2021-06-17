@@ -90,4 +90,10 @@ describe('app routes', () => {
 
 </html>`);
   });
+
+  it('routes to a non-existent html and responds with a not found message', async() => {
+    const res = await request(app).get('/failure');
+
+    expect(res.text).toEqual('Not Found');
+  });
 });
